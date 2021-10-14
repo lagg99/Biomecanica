@@ -1,0 +1,30 @@
+
+<form action="">
+
+<table class="table table-sm">
+    <thead >
+        <tr>
+            <th>cddato</th>
+            <th>dsdato</th>
+            <th>cddato1</th>
+            <th>cddato2</th>
+            <th>cddato3</th>
+            <th>opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let arreglo of dataMaestra">
+            <td>{{arreglo.cddato}}</td>
+            <td>{{arreglo.dsdato}}</td>
+            <td>{{arreglo.cddato1}}</td>
+            <td>{{arreglo.cddato2}}</td>
+            <td>{{arreglo.cddato3}}</td>
+            <td>
+                <button type="button" (click)="deleteDataMaestra(arreglo.nmdato)" class="btn btn-danger">Eliminar</button>
+                <button type="button" (click)="EditarDataMaestra(arreglo)" class="btn btn-warning" data-bs-dismiss="modal">Editar</button>
+            </td>
+            
+        </tr>
+    </tbody>
+</table>
+</form>

@@ -1,0 +1,17 @@
+<div id="form1">
+    <div><label id="title" >Insertar nueva maestras</label></div>
+    <div class="contenedor1">
+  
+      <input [(ngModel)]="cdmaestro" type="text" id="cdmaestro" placeholder="cdmaestro" maxlength="5">
+      
+  
+      <input [(ngModel)]="dsmaestro" type="text" id="dsmaestro" placeholder="dsmaestro" maxlength="100">
+
+    </div>
+    <div id="prueba">
+    <button type="button"data-bs-dismiss="modal">Cancelar</button>
+    <button type="button" (click)="prepararParaGuardar()">Guardar</button>
+</div>
+</div>
+
+

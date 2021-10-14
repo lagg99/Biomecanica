@@ -1,0 +1,10 @@
+#agregarMaestra{
+    float: right;
+    margin-right: 20px
+}
+th,tr{
+    text-align: center;
+}
+button{
+    margin-left: 10px;
+}

@@ -1,0 +1,14 @@
+<div id="form1">
+  <div><label id="title" >Actualizar maestra</label></div>
+  <div class="contenedor1">
+<label for="cdmaestro">cdmaestro</label>
+    <input [(ngModel)]="maestra.cdmaestro" type="text" id="cdmaestro" placeholder="cdmaestro" maxlength="5">
+<label for="dsmaestro">dsmaestro</label>
+    <input [(ngModel)]="maestra.dsmaestro" type="text" id="dsmaestro" placeholder="dsmaestro" maxlength="100">
+  </div>
+  <div id="prueba">
+  <button (click)="regresar()">Cancelar</button>
+  <button (click)="actualizar(maestra)">Actualizar</button>
+</div>
+</div>
+

@@ -1,0 +1,116 @@
+
+  <div id="prueba">
+    <button id="agregarMaestra" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AgregarNuevaMaestra">Agregar Maestra</button>
+
+</div>
+
+
+    <table class="table" >
+        <thead >
+            <tr>
+                <th>nmmaestro</th>
+                <th>cdmaestro</th>
+                <th>dsmaestro</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let array of maestras">
+                <td>{{array.nmmaestro}}</td>
+                <td>{{array.cdmaestro}}</td>
+                <td>{{array.dsmaestro}}</td>
+                <td>
+
+                  <!--<button mat-icon-button aria-label="Example icon button with a home icon">
+                    <mat-icon>delete</mat-icon>
+                  </button> -->
+                 <!-- <button class="btn btn-lg" style="background-color:transparent;">
+                    <i class="fa fa-pencil"></i></button>-->
+                <button id="eliminar" (click)="deleteById(array.nmmaestro)" class="btn btn-danger">Eliminar</button>
+                <button id="detalles" (click)="cargardataMaestra(array)" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#ModalDetalles">Detalles</button>
+                <button id="editar" (click)="updateMaestra(array)" class="btn btn-warning" > Editar </button> 
+                <button id="agregar" class="btn btn-success" (click)="formDataMaestra(array)">Agregar Dato</button>
+
+              </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+<!-- Modal para ver los detalles del maestro-->
+<div class="modal fade" id="ModalDetalles" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Datos del maestro Seleccionado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        
+            <app-detail-data-maestra [idMaestra]="idMaestraSeleccionada"> </app-detail-data-maestra>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal para Agregar nueva maestra -->
+<div class="modal fade" id="AgregarNuevaMaestra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      
+          <app-insert > </app-insert>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Modal para Actualizar data maestra -->
+  <div class="modal fade" id="modalActualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        
+         <!----> <app-update> </app-update>
+  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <h1>Hola</h1>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
