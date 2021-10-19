@@ -1,15 +1,15 @@
 package bmc.care.dao;
 
 import bmc.care.dto.dataMaestra.DataMaestra;
-import bmc.care.dto.maestras.Maestras;
 import bmc.care.exception.DaoException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
+import bmc.care.util.UtilDate;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -22,7 +22,7 @@ public class DataMaestraDaoImpl implements DataMaestraDao {
         public DataMaestra mapRow(ResultSet rs, int rowNum) throws SQLException {
 
             DataMaestra d=new DataMaestra();
-
+            d.setNmdato(rs.getInt("nmdato"));
             d.setCddato(rs.getString("cddato"));
             d.setDsdato(rs.getString("dsdato"));
             d.setCddato1(rs.getString("cddato1"));
@@ -35,7 +35,7 @@ public class DataMaestraDaoImpl implements DataMaestraDao {
 
     private static final String DELETEDATAMAESTRA= "DELETE FROM datamaestra WHERE(nmdato=?)";
     private static final String DELETEHIJOSMAESTRA="DELETE FROM datamaestra d WHERE EXISTS ( SELECT  m.nmmaestro FROM maestras m WHERE m.nmmaestro = d.nmmaestro AND m.nmmaestro=?)";
-    private  static final String CONSULTDATAMAESTRA="SELECT d.cddato, d.dsdato, d.cddato1, d.cddato2, d.cddato3 FROM datamaestra d WHERE d.nmmaestro=?";
+    private  static final String CONSULTDATAMAESTRA="SELECT d.nmdato, d.cddato, d.dsdato, d.cddato1, d.cddato2, d.cddato3 FROM datamaestra d WHERE d.nmmaestro=?";
     private static final String UPDATEDATAMAESTRA="UPDATE datamaestra SET cddato=?,dsdato=?,cddato1=?,cddato2=?,cddato3=? WHERE nmdato=?";
     private static final String INSERTDATAMAESTRA="INSERT INTO datamaestra(nmmaestro,cddato,dsdato,cddato1,cddato2,cddato3,feregitro) VALUE(?,?,?,?,?,?,?)";
     private static final String COUNT="SELECT COUNT(1) FROM datamaestra d WHERE d.nmdato=?";
@@ -62,7 +62,7 @@ public class DataMaestraDaoImpl implements DataMaestraDao {
     }
 
     @Override
-    public List<DataMaestra> ConsultDataMaestraById(int id) throws DaoException{
+    public List<DataMaestra> consultDataMaestraById(int id) throws DaoException{
         return jdbcTemplate.query(CONSULTDATAMAESTRA,new dataMaestraMapper(),id);
 
     }
@@ -73,20 +73,32 @@ public class DataMaestraDaoImpl implements DataMaestraDao {
     }
     @Override
     public DataMaestra saveDataMaestra(DataMaestra dataMaestra) throws DaoException  {
+        try{
         jdbcTemplate.update(INSERTDATAMAESTRA,dataMaestra.getNmmaestro(), dataMaestra.getCddato(),
                             dataMaestra.getDsdato(),dataMaestra.getCddato1(),dataMaestra.getCddato2(),
-                            dataMaestra.getCddato3(),dataMaestra.fechaActual());
+                            dataMaestra.getCddato3(),UtilDate.toDate(new Date(),"yyyy-MM-dd"));
+        }catch (Exception e) {
+            throw new DaoException(e);
+        }
         return dataMaestra;
     }
 
     @Override
     public DataMaestra update(DataMaestra dm) throws DaoException {
+        try{
         jdbcTemplate.update(UPDATEDATAMAESTRA,dm.getCddato(), dm.getDsdato(),dm.getCddato1(),dm.getCddato2(),dm.getCddato3(), dm.getNmdato());
+        }catch (Exception e) {
+            throw new DaoException(e);
+        }
         return dm;
     }
 
     @Override
     public int exist(DataMaestra dm) throws DaoException {
+        try{
         return jdbcTemplate.queryForObject(COUNT,new Object[]{dm.getNmdato()},Integer.class);
+        }catch (Exception e) {
+            throw new DaoException(e);
+        }
     }
 }

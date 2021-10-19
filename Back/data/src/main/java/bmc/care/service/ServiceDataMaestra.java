@@ -10,7 +10,7 @@ import java.util.List;
 public interface ServiceDataMaestra {
      DataMaestra saveDataMaestra(DataMaestra dataMaestra) throws ServiceException;
      void deleteByIdDataMaestra(int id) throws ServiceException;
-     List<DataMaestra> ConsultByIdDataMaestra(int id) throws ServiceException;
+     List<DataMaestra> consultByIdDataMaestra(int id) throws ServiceException;
       List<DataMaestra> consultDataMaestraByTipo(String codigo) throws ServiceException;
      DataMaestra update(DataMaestra dataMaestra) throws  ServiceException;
 

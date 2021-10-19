@@ -1,0 +1,67 @@
+
+
+        <div id="padre">
+            <div><label id="title" >Persona</label></div>
+            <div>
+                <input type="text" id="document" placeholder="Documento" maxlength="20" />
+                <div id="documentHelp" class="form-text"></div>
+            </div>
+
+            <div class="contenedor2">
+                <div id="div1">
+                    <div>
+                        <input type="name" id="name" placeholder="Nombres" maxlength="60"[required]/>
+                        
+                       </div>
+                <div>
+                <label for="">Tipo</label>
+                <select name="" >
+                  <option value="seleccione">SELECCIONE</option>
+                  <option value="" *ngFor="let array of dataMaestra">{{array.dsdato}}</option>
+                </select>
+            </div>
+
+                
+            <div>
+                <label for="">Fecha de nacimiento</label>
+                <input [(ngModel)]="fecha" type="date"id="input1"/>
+                {{fecha}}
+            </div>
+                </div>
+            </div>
+
+        
+                <div id="div2">
+                                
+            <div>
+                <input type="lastName" id="lastNane" placeholder="Apellidos" maxlength="60"/>
+            </div>
+
+
+                <label for="">Género</label>
+                <select name="" >
+                  <option value="Seleccione">SELECCIONE</option>
+                  <option value="" *ngFor="let array of dataMaestraII">{{array.dsdato}}</option>
+
+                </select>
+        
+                <label for="">Dirección</label>
+                <input type="text" maxlength="200"/>
+                </div>
+                  
+                <div>
+                    <input type="text" placeholder="Teléfono fijo" maxlength="20" />
+                </div>
+                <div>
+                    <input type="text" placeholder="Teléfono Móvil" maxlength="20"/>
+                </div>
+                <div>
+                    <input type="text" placeholder="Correo" maxlength="200"/>
+                </div>
+   
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+  
+  
+  

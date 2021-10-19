@@ -12,19 +12,18 @@ import { catchError } from 'rxjs/operators';
 })
 export class ServiceService {
 
-
   maestra:Maestras;
 
   constructor(private http:HttpClient) { }
 
 
+ /* MAESTRAS */ 
   url='http://localhost:1020/bmc/maestras/getAll';
   url2='http://localhost:1020/bmc/maestras/saveOrUpdateMaestra';
   url4='http://localhost:1020/bmc/maestras/getMaestraById';
 
   urlprueba='http://localhost:1020/bmc/maestras/getMaestraById/1';
 
-  
   getMaestra(){
     return this.http.get<Maestras[]>(this.url);
   }
@@ -49,19 +48,18 @@ export class ServiceService {
     return this.http.get<dataMaestra[]>(this.urlprueba)
   }
   
-  /* DATA MAESTRA */
+
 /* DATA MAESTRA */
 
-urlDataMaestraBase='http://localhost:1020/bmc/datamaestra';
-
+urlDataMaestra='http://localhost:1020/bmc/datamaestra';
 
 
 createDataMaestras(dataMaestra:dataMaestra): Observable<dataMaestra>{
-  return this.http.post<dataMaestra>(this.urlDataMaestraBase+'/savedDataMaestra',dataMaestra);
+  return this.http.post<dataMaestra>(this.urlDataMaestra+'/savedDataMaestra',dataMaestra);
 }
 
 deleteDataMaestra(id: number){
-  return this.http.delete<dataMaestra>(this.urlDataMaestraBase+'/deleteDataMaestra/'+`${id}`).
+  return this.http.delete<dataMaestra>(this.urlDataMaestra+'/deleteDataMaestra/'+`${id}`).
   pipe(
     tap(()=>{
 
@@ -69,11 +67,11 @@ deleteDataMaestra(id: number){
   )
 }
 getDataMaestra(id: number){
-  return this.http.get<dataMaestra>(this.urlDataMaestraBase+'/getDataMaestra/'+`${id}`);
+  return this.http.get<dataMaestra>(this.urlDataMaestra+'/getDataMaestra/'+`${id}`);
 }
 
 UpdateDataMaestras(dataMaestra:UpdateDataMaestra): Observable<UpdateDataMaestra>{
-  return this.http.put<UpdateDataMaestra>(this.urlDataMaestraBase+'/update'+dataMaestra.nmdato,dataMaestra);
+  return this.http.put<UpdateDataMaestra>(this.urlDataMaestra+'/update'+dataMaestra.nmdato,dataMaestra);
 }
 
 setMaestra(maestra: Maestras){
@@ -85,4 +83,12 @@ getMaestraSeleccionada(){
   return this.maestra;
 }
 
+
+/** usado en Persona */
+
+getTipo(dsdato:String){
+  return this.http.get<dataMaestra[]>(this.urlDataMaestra+'/consultDataMaestraByTipo/'+`${dsdato}`)
 }
+}
+
+

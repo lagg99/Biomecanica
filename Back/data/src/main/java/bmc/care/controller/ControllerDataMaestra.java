@@ -2,8 +2,6 @@ package bmc.care.controller;
 
 
 import bmc.care.dto.dataMaestra.DataMaestra;
-import bmc.care.dto.maestras.Maestras;
-import bmc.care.exception.DaoException;
 import bmc.care.exception.ServiceException;
 import bmc.care.service.ServiceDataMaestra;
 import org.slf4j.Logger;
@@ -53,11 +51,11 @@ public class ControllerDataMaestra {
     }
 
     @GetMapping("/getDataMaestra/{id}")
-    public List<DataMaestra> ConsultDataMaestraById(@PathVariable ("id")int id){
+    public List<DataMaestra> consultDataMaestraById(@PathVariable ("id")int id){
         List<DataMaestra> lista = null;
 
         try{
-            lista= serviceDataMaestra.ConsultByIdDataMaestra(id);
+            lista= serviceDataMaestra.consultByIdDataMaestra(id);
         }catch (ServiceException se){
             logger.error(ServiceException.toStringStackTrace(se));
         }catch (Exception ex){

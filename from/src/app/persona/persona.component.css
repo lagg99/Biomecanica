@@ -1,0 +1,79 @@
+#title{
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    color: black;
+    font-weight: bold;
+  }
+  
+#padre{
+    width: 400px;
+    border: 1px solid #ccc;
+    margin: 20px;
+    padding: 20px;
+    background:white;
+    border-radius: 10px;
+    align-content: center;
+    margin-right: 40px;
+    margin: 0 auto;
+  }
+   label{
+    font-size: 14px;
+    display:inline-block;
+    width: 100%;
+    color:dimgrey;
+  }
+  
+  input:focus, select:focus {
+    outline: none !important;
+  
+    box-shadow: 0 0 4px #024791
+  }
+  
+  .contenedor1 input{
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid rgb(151, 142, 142);
+    border-radius: 4px;
+  }
+  #input1,select, input{
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid rgb(151, 142, 142);
+    border-radius: 4px;
+    height: 40px;
+  }
+  #div1{
+    width: 174px;
+    float: left;
+  }
+  
+  #div2{
+  
+    width: 174px;
+    float: right;
+  }
+  
+  button{
+    background-color:darkblue;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+  }
+  button:hover{
+    background-color:rgb(14, 107, 168);
+  }
+  /*Para desactivar el spinner del input number*/
+  input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }

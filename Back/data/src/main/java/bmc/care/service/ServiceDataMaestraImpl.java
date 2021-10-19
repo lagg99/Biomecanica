@@ -21,7 +21,7 @@ public class ServiceDataMaestraImpl implements ServiceDataMaestra {
     private final Logger log = LoggerFactory.getLogger(ServiceDataMaestraImpl.class);
 
     @Autowired
-    private DataMaestraDaoImpl dataMaestraDao;
+    DataMaestraDaoImpl dataMaestraDao;
 
     @Override
     public DataMaestra saveDataMaestra(DataMaestra dataMaestra) throws ServiceException {
@@ -50,10 +50,10 @@ public class ServiceDataMaestraImpl implements ServiceDataMaestra {
     }
 
     @Override
-    public List<DataMaestra> ConsultByIdDataMaestra(int id) throws ServiceException{
+    public List<DataMaestra> consultByIdDataMaestra(int id) throws ServiceException{
 
         try{
-            return dataMaestraDao.ConsultDataMaestraById(id);
+            return dataMaestraDao.consultDataMaestraById(id);
         }catch (DaoException de){
             throw new ServiceException(de);
         }catch (Exception ex){

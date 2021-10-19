@@ -55,7 +55,7 @@ public class ServiceMaestrasImpl implements ServiceMaestras{
     @Override
     public Maestras getById(int id)  throws ServiceException{
         try {
-            return maestrasDao.GetById(id);
+            return maestrasDao.getById(id);
         }catch (DaoException de){
             throw new  ServiceException(de);
         }catch(Exception ex) {
@@ -66,9 +66,9 @@ public class ServiceMaestrasImpl implements ServiceMaestras{
     }
 
     @Override
-    public List<Maestras> GetAll() throws ServiceException {
+    public List<Maestras> getAll() throws ServiceException {
         try {
-            return maestrasDao.GetAll();
+            return maestrasDao.getAll();
         }catch (DaoException de){
             throw new  ServiceException(de);
         }catch(Exception ex) {

@@ -38,7 +38,7 @@ public class MaestrasDaoImpl implements MaestrasDao{
     private static final String INSERT="INSERT INTO maestras (cdmaestro,dsmaestro,feregistro,febaja) VALUE(?,?,?,?)";
     private static final String UPDATE="UPDATE maestras SET cdmaestro=?,dsmaestro=? WHERE nmmaestro=?";
     private static final String DELETE="DELETE FROM maestras WHERE nmmaestro=?";
-    private static final String CONSULTBYID="SELECT * FROM maestras WHERE nmmaestro=?";
+    private static final String CONSULTBYID="SELECT m.nmmaestro, m.cdmaestro, m.dsmaestro FROM maestras m WHERE m.nmmaestro=?";
     private static final String GETALL="SELECT m.nmmaestro, m.cdmaestro, m.dsmaestro FROM maestras m";
     private static final String COUNT="SELECT COUNT(1) FROM maestras m WHERE m.nmmaestro=?";
 
@@ -73,7 +73,7 @@ public class MaestrasDaoImpl implements MaestrasDao{
         }
     }
     @Override
-    public Maestras GetById(int id) throws DaoException{
+    public Maestras getById(int id) throws DaoException{
         try {
             RowMapper<Maestras> rowMapper= new BeanPropertyRowMapper<>(Maestras.class);
 
@@ -85,7 +85,7 @@ public class MaestrasDaoImpl implements MaestrasDao{
 
     }
     @Override
-    public List<Maestras> GetAll() throws DaoException{
+    public List<Maestras> getAll() throws DaoException{
         try {
             return jdbcTemplate.query(GETALL, new MaestraMapper());
         } catch (Exception e) {

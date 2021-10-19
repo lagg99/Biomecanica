@@ -9,6 +9,7 @@ import { DataMaestraComponent } from './data-maestra/data-maestra.component';
 import { DetailDataMaestraComponent } from './detail-data-maestra/detail-data-maestra.component';
 import {UpdateDataMaestraComponent} from './update-data-maestra/update-data-maestra.component'
 import{HomeComponent} from './home/home.component'
+import { PersonaComponent } from './persona/persona.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
   path:'addMaestra',
   component:InsertComponent
+  },
+  {
+    path:'person',
+    component:PersonaComponent
   }
 ];
 

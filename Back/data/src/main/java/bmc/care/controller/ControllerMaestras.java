@@ -15,7 +15,9 @@ import java.util.List;
 @RequestMapping("/bmc/maestras") //  http://localhost:1020/swagger-ui/#/
 @CrossOrigin(origins = "http://localhost:4600", maxAge = 3600)// esto es para poder mostrar en from
 public class ControllerMaestras {
+
     private final Logger logger =  LoggerFactory.getLogger(ControllerMaestras.class);
+
     @Autowired
     ServiceMaestras serviceMaestras;
 
@@ -62,7 +64,7 @@ public class ControllerMaestras {
     public List<Maestras> getAll(){
         List<Maestras> lista =null;
         try{
-            lista= serviceMaestras.GetAll();
+            lista= serviceMaestras.getAll();
         }catch (ServiceException se){
             logger.error(ServiceException.toStringStackTrace(se));
         }catch (Exception ex){

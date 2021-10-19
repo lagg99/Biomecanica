@@ -51,11 +51,4 @@ public class Maestras {
         this.nmmaestro = nmmaestro;
     }
 
-
-    public String fechaActual(){
-        Date fecha=new Date();
-        SimpleDateFormat formatoFecha=new SimpleDateFormat("YYYY/MM/dd");
-        return formatoFecha.format(fecha);
-
-    }
 }

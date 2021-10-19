@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { PersonaComponent } from './persona/persona.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {MatIconModule} from '@angular/material/icon';
     UpdateComponent,
     DetailDataMaestraComponent,
     UpdateDataMaestraComponent,
-    HomeComponent
+    HomeComponent,
+    PersonaComponent
   ],
   imports: [
     BrowserModule,

@@ -9,5 +9,5 @@ public interface ServiceMaestras {
     Maestras save(Maestras maestras) throws ServiceException;
     void delete(int id) throws ServiceException ;
     Maestras getById(int id) throws ServiceException ;
-    List<Maestras> GetAll() throws ServiceException ;
+    List<Maestras> getAll() throws ServiceException ;
 }

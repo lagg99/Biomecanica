@@ -10,7 +10,7 @@ public interface DataMaestraDao {
     DataMaestra saveDataMaestra(DataMaestra dataMaestra) throws DaoException;
     DataMaestra update(DataMaestra dataMaestra)  throws DaoException;
     void deleteByIdDataMaestra(int id) throws DaoException;
-    List<DataMaestra> ConsultDataMaestraById(int id) throws DaoException;
-    public List<DataMaestra> consultDataMaestraByTipo(String codigo) throws DaoException;
+    List<DataMaestra> consultDataMaestraById(int id) throws DaoException;
+    List<DataMaestra> consultDataMaestraByTipo(String codigo) throws DaoException;
     int exist(DataMaestra dm)  throws DaoException;
 }

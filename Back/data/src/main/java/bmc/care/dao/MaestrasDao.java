@@ -9,7 +9,7 @@ public interface MaestrasDao {
     Maestras save(Maestras maestras) throws DaoException;
     Maestras update(Maestras maestras)  throws DaoException;
     void delete(int id)  throws DaoException;
-    Maestras GetById(int id)  throws DaoException;
-    List<Maestras> GetAll()  throws DaoException;
+    Maestras getById(int id)  throws DaoException;
+    List<Maestras> getAll()  throws DaoException;
     int exist(Maestras maestras)  throws DaoException;
 }
